@@ -119,7 +119,7 @@ use yii\helpers\Html;
                                 <div class="productinfo text-center">
 <!--                                    <img src="images/home/product1.jpg" alt="" />-->
                                     <?= Html::img("@web/images/products/{$hit->img}", ['alt' => $hit->name])?>
-                                    <h2><?= $hit->price?></h2>
+                                    <h2>$<?= $hit->price?></h2>
                                     <p><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id ])?>"><?= $hit->name.'!!!'?> </a></p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
