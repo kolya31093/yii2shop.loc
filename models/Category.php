@@ -1,4 +1,28 @@
 <?php
+namespace app\models;
+use yii\db\ActiveRecord;
+
+
+class Category extends ActiveRecord{
+
+    public function behaviors()
+    {
+        return [
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ]
+        ];
+    }
+
+    public static function tableName(){
+        return 'category';
+    }
+
+    public function getProducts(){
+        return $this->hasMany(Product::className(), ['category_id' => 'id']);
+    }
+
+} 
 /**
  * Created by PhpStorm.
  * User: Kolya
@@ -6,16 +30,25 @@
  * Time: 18:14
  */
 
-namespace app\models;
+// namespace app\models;
 
-use yii\db\ActiveRecord;
-class Category extends ActiveRecord{
+// use yii\db\ActiveRecord;
 
-        public static function tableName(){
-            return 'category';
-        }
-         public function getProducts(){
-             return $this->hasMany(Product::className(), ['category_id' => 'id']);
-         }
-}
+// class Category extends ActiveRecord{
+
+//         // public static function tableName(){
+//         //     return 'category';
+//         // }
+//         //  public function getProducts(){
+//         //      return $this->hasMany(Product::className(), ['category_id' => 'id']);
+//         //  }
+
+//              public static function tableName(){
+//         return 'category';
+//     }
+
+//     public function getProducts(){
+//         return $this->hasMany(Product::className(), ['category_id' => 'id']);
+//     }
+// }
 
