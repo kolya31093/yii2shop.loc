@@ -45,7 +45,7 @@ use yii\helpers\Html;
 
     <?php
     $mainImg = $product->getImage();
-    $gallery = $product->getImage();
+    $gallery = $product->getImages();
 
     ?>
 
@@ -64,7 +64,7 @@ use yii\helpers\Html;
                     <?php if($i % 3 == 0): ?>
                         <div class="item <?php if($i == 0) echo ' active'?>">
                     <? endif; ?>
-                    <a href=""><img src="/images/product-details/similar1.jpg" alt=""></a>
+                    <a href=""><?= Html::img($img->getUrl('84x85'), ['alt' => ''])?></a>
                     <? $i++; if($i % 3 == 0 || $i == $count): ?>
                         </div>
                     <?php endif; ?>
